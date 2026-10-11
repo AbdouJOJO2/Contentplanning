@@ -194,8 +194,11 @@
         choice("عندك مشاهدات لكن ما تتحول لمتابعين.","conversion"),
         choice("ماعندك انتباه ولا مشاهدات.","foundation"),
         choice("المحتوى ياخذ مني وقت كثير وما في نظام يختصر علي.","content_engine")]},
-      {id:"monthly_income",type:"choice",title:"كم دخلك الشهري حاليًا؟",options:[
-        choice("$0 - $500"),choice("$500 - $2,000"),choice("$2,000 - $6,000"),choice("$6,000 - $10,000"),choice("أكثر من $10,000")]}
+      {id:"client_source",type:"choice",title:"من وين تجيب عملاء حاليًا؟",options:[
+        choice("إعلانات."),
+        choice("Outreach."),
+        choice("محتوى مجاني (إنستقرام / يوتيوب)."),
+        choice("لسا ما جبت عملاء.","foundation")]}
     ];
     const results = {
       foundation:{title:"أكبر خطأ يمنعك توصل لهدفك:",hl:"الأساس",body:"المشكلة مو إنك تنشر أكثر. قبل أي محتوى لازم يكون واضح: مين عميلك، وش المشكلة اللي تحلها، وليش يختارك أنت.",plan:["اكتب عرضك في جملة واحدة.","حدد ملف عميل واحد (ICP) تبغى تخدمه الآن.","اكتب 5 آلام و5 رغبات و5 اعتراضات لهذا الشخص.","حدّث الـBio: من تساعد + النتيجة + الخطوة التالية.","انشر 3 فيديوهات تخاطب المشكلة مباشرة."],keyword:"FOUNDATION"},
@@ -243,10 +246,10 @@
       if(q.type==="identity"){answers[q.id]={name:$("#fullName").value.trim(),instagram:cleanIg($("#igHandle").value)}}
       persist();
     }
-    function calculate(){const g=answers.biggest_problem?.group||"conversion";return {result:g}}
+    function calculate(){const g=answers.client_source?.group==="foundation"?"foundation":(answers.biggest_problem?.group||"conversion");return {result:g}}
     function structuredData(){
       const {result}=calculate(),id=answers.identity||{};
-      return {submittedAt:new Date().toISOString(),result,name:id.name||"",instagram:id.instagram||"",answers:{biggest_problem:answers.biggest_problem?.value||"",monthly_income:answers.monthly_income?.value||"",contact:id.instagram||""}};
+      return {submittedAt:new Date().toISOString(),result,name:id.name||"",instagram:id.instagram||"",answers:{biggest_problem:answers.biggest_problem?.value||"",client_source:answers.client_source?.value||"",contact:id.instagram||""}};
     }
     async function save(data){
       try{await fetch(WEBHOOK_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)})}
