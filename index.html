@@ -154,19 +154,22 @@
     #result .result-actions .button.big::after{display:none}
     @keyframes notionGlow{0%,100%{box-shadow:inset 0 1px 1px rgba(255,255,255,.6),0 0 14px 1px rgba(255,125,20,.35),0 8px 24px -10px rgba(0,0,0,.6)}50%{box-shadow:inset 0 1px 1px rgba(255,255,255,.6),0 0 30px 6px rgba(255,140,40,.7),0 8px 24px -10px rgba(0,0,0,.6)}}
     @media(prefers-reduced-motion:reduce){#result .result-actions .button.big{animation:none;box-shadow:0 0 22px 3px rgba(255,130,30,.5)}}
-</style>
+  </style>
 </head>
 <body>
-    <main class="shell">
+  <main class="shell">
     <section id="intro" class="hero">
-<h2>ابني خطة <span class="hl">مجانية</span> تضاعف أرباح البزنس تبعك</h2> 
+      <h2>ابني خطة <span class="hl">مجانية</span> تضاعف أرباح البزنس تبعك</h2> 
       <div class="mock" aria-hidden="true">
         <img class="side r" src="img-foundation.jpg" alt="" loading="eager">
         <img class="side l" src="img-conversion.jpg" alt="" loading="eager">
         <img class="mid" src="img-engine.jpg" alt="" loading="eager">
       </div>
       <button id="start" class="button big">يلا نبدأ</button>
-      <ul class="perks"><li>أقل من <span class="numeral">30</span> ثانية للتجهيز</li><li>مجانية فقط لأول <span class="numeral">99</span> شخص</li></ul>
+      <ul class="perks">
+        <li>أقل من <span class="numeral">30</span> ثانية للتجهيز</li>
+        <li>مجانية فقط لأول <span class="numeral">99</span> شخص</li>
+      </ul>
     </section>
     <section id="quiz" class="card step-card hidden" aria-live="polite">
       <div class="progress"><span id="progress"></span></div>
@@ -174,7 +177,12 @@
       <p id="error" class="error hidden"></p>
       <button id="next" class="button big" disabled>التالي</button>
     </section>
-    <section id="loading" class="card loading hidden" aria-live="polite"><div class="spinner"></div><h2>نجهّز لك خطتك</h2><div class="final-progress"><span id="finalProgress"></span></div><p id="finalPercent" class="final-percent">0%</p></section>
+    <section id="loading" class="card loading hidden" aria-live="polite">
+      <div class="spinner"></div>
+      <h2>نجهّز لك خطتك</h2>
+      <div class="final-progress"><span id="finalProgress"></span></div>
+      <p id="finalPercent" class="final-percent">0%</p>
+    </section>
     <section id="result" class="card result hidden"></section>
   </main>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
@@ -185,46 +193,90 @@
       conversion: "https://obtainable-ground-fc6.notion.site/Foundation-3ebe351c923280b699c8f13384716c22?source=copy_link"
     };
     const NOTION_ICON = '<svg viewBox="0 0 24 24" fill="#0b0806" aria-hidden="true"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg>';
-    const SESSION_KEY = "contentToClientScorecardSessionV3";
+    const SESSION_KEY = "contentToClientScorecardSessionV4";
     const WEBHOOK_URL = "https://hook.eu1.make.com/t6lq5g3owb6tuzfvufjpy3zms9hnj1cg";
     const choice = (label, group=null) => ({label, group});
+
     const questions = [
-      {id:"identity",type:"identity",title:"وش اسمك الكامل وحساب الأنستقرام تبعك؟"},
-      {id:"biggest_problem",type:"choice",title:"وش هي أكبر مشكلة عندك فالمحتوى حاليًا؟",options:[
-        choice("عندك مشاهدات لكن ما تتحول لمتابعين.","conversion"),
-        choice("ماعندك انتباه ولا مشاهدات.","foundation"),
-        choice("المحتوى ياخذ مني وقت كثير وما في نظام يختصر علي.","content_engine")]},
-      {id:"client_source",type:"choice",title:"من وين تجيب عملاء حاليًا؟",options:[
-        choice("إعلانات."),
-        choice("Outreach."),
-        choice("محتوى مجاني (إنستقرام / يوتيوب)."),
-        choice("لسا ما جبت عملاء.","foundation")]}
+      {
+        id: "identity",
+        type: "identity",
+        title: "وش اسمك الكامل وحساب الأنستقرام تبعك؟"
+      },
+      {
+        id: "biggest_problem",
+        type: "choice",
+        title: "وش هي أكبر مشكلة عندك فالمحتوى حاليًا؟",
+        options: [
+          choice("عندي مشاهدات ومتابعين لكن ما يتحولوا لعملاء.", "conversion"),
+          choice("ماعندي انتباه ولا مشاهدات.", "foundation"),
+          choice("المحتوى ياخذ مني وقت كثير وما في نظام يختصر علي.", "content_engine")
+        ]
+      },
+      {
+        id: "client_source",
+        type: "choice",
+        title: "من وين تجيب عملاء حاليًا؟",
+        options: [
+          choice("إعلانات."),
+          choice("Outreach."),
+          choice("محتوى مجاني (إنستقرام / يوتيوب)."),
+          choice("لسا ما جبت عملاء.", "foundation")
+        ]
+      },
+      {
+        id: "monthly_income",
+        type: "choice",
+        title: "كم دخلك الشهري حاليًا من خدماتك؟",
+        options: [
+          choice("لسا ما دخلت أي فلس من خدماتي.", "foundation"),
+          choice("أقل من 1,000$ في الشهر."),
+          choice("بين 1,000$ و 3,000$ في الشهر."),
+          choice("أكثر من 3,000$ في الشهر.")
+        ]
+      },
+      {
+        id: "content_goal",
+        type: "choice",
+        title: "وش هو هدفك الأساسي من صناعة المحتوى؟",
+        options: [
+          choice("نشر الفائدة."),
+          choice("زيادة المبيعات."),
+          choice("المشاهدات.")
+        ]
+      }
     ];
+
     const results = {
       foundation:{title:"أكبر خطأ يمنعك توصل لهدفك:",hl:"الأساس",body:"المشكلة مو إنك تنشر أكثر. قبل أي محتوى لازم يكون واضح: مين عميلك، وش المشكلة اللي تحلها، وليش يختارك أنت.",plan:["اكتب عرضك في جملة واحدة.","حدد ملف عميل واحد (ICP) تبغى تخدمه الآن.","اكتب 5 آلام و5 رغبات و5 اعتراضات لهذا الشخص.","حدّث الـBio: من تساعد + النتيجة + الخطوة التالية.","انشر 3 فيديوهات تخاطب المشكلة مباشرة."],keyword:"FOUNDATION"},
       content_engine:{title:"أكبر خطأ يمنعك توصل لهدفك:",hl:"نظام المحتوى",body:"عندك خبرة ونتائج حقيقية، لكن تحويلها لمحتوى متعب وعشوائي. ما تحتاج أفكار أكثر؛ تحتاج نظام يشتغل بدالك.",plan:["اجمع 5 نتائج حققها عملاؤك.","اكتب المشكلة قبل النتيجة وش اللي تغيّر.","حوّل كل نتيجة لفكرة تعليمية وفكرة Proof وفكرة تحويلية.","اعمل قائمة أفكار واحدة بدل البدء من الصفر.","خصّص يوم ثابت للتصوير ويوم للمراجعة والنشر."],keyword:"ENGINE"},
       conversion:{title:"أكبر خطأ يمنعك توصل لهدفك:",hl:"التحويل",body:"محتواك يجلب اهتمام ومشاهدات، لكن الاهتمام وحده ما يصير عميل. تحتاج مسار واضح يحوّل المشاهد لمتابع ثم لعميل.",plan:["راجع آخر 10 فيديوهات: وش هدف كل فيديو؟","أضف CTA واضحة في نهاية كل محتوى تحويلي.","استخدم Lead Magnet واحد يحل مشكلة سريعة.","اكتب 3 صياغات مختلفة لدعوة الـDM.","تتبّع الرسائل المؤهلة، مو المشاهدات فقط."],keyword:"LEADS"}
     };
+
     let step = 0;
     const answers = {};
     const $ = s => document.querySelector(s);
     const esc = t => String(t).replace(/[&<>'"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[c]));
-    const fmt = t => esc(t).replace(/([0-9٠-٩]+)/g,'<span class="numeral">$1</span>');
+    const fmt = t => esc(t).replace(/([0-9٠-٩]+(?:,[0-9٠-٩]+)*\$?)/g,'<span class="numeral">$1</span>');
     const cleanIg = v => v.trim().replace(/^https?:\/\/(www\.)?instagram\.com\//i,"").replace(/[\/?#].*$/,"").replace(/^@+/,"").replace(/\s+/g,"");
+
     function persist(view="quiz",data=null){try{localStorage.setItem(SESSION_KEY,JSON.stringify({step,answers,view,data}))}catch(e){}}
     function restore(){try{const sv=JSON.parse(localStorage.getItem(SESSION_KEY)||"null");if(!sv)return;Object.assign(answers,sv.answers||{});if(sv.view==="result"&&sv.data){$("#intro").classList.add("hidden");showResult(sv.data);return}if(Object.keys(answers).length){step=Math.min(Number(sv.step)||0,questions.length-1);$("#intro").classList.add("hidden");$("#quiz").classList.remove("hidden");render()}}catch(e){}}
     function toast(m){const el=$("#toast");el.textContent=m;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2800)}
+
     function isValid(){
       const q=questions[step];
       if(q.type==="identity"){const n=($("#fullName")?.value||"").trim(),ig=cleanIg($("#igHandle")?.value||"");return n.length>=2&&ig.length>=2}
       return !!answers[q.id]?.value;
     }
+
     function refresh(){
       const q=questions[step];
       $("#next").disabled=!isValid();
       if(q.type==="identity"){["fullName","igHandle"].forEach(id=>{const el=$("#"+id);el.classList.toggle("glow",!el.value.trim())})}
       else $(".options")?.classList.toggle("glow",!answers[q.id]?.value);
     }
+
     function render(){
       const q=questions[step],saved=answers[q.id];
       $("#progress").style.width=`${((step+1)/questions.length)*100}%`;
@@ -241,36 +293,56 @@
       document.querySelectorAll(".field").forEach(f=>f.addEventListener("input",refresh));
       refresh();
     }
+
     function capture(){
       const q=questions[step];
       if(q.type==="identity"){answers[q.id]={name:$("#fullName").value.trim(),instagram:cleanIg($("#igHandle").value)}}
       persist();
     }
-    function calculate(){const g=answers.client_source?.group==="foundation"?"foundation":(answers.biggest_problem?.group||"conversion");return {result:g}}
+
+    function calculate(){
+      // إذا لم يحصل على عملاء بعد أو لم يدخل أي فلس من خدماته -> يذهب مباشرة إلى foundation
+      // غير ذلك (بما في ذلك سؤال الهدف الأساسي من المحتوى) -> يعتمد على نقاط السؤال الأول (biggest_problem)
+      const isFoundationOverride = answers.client_source?.group === "foundation" || answers.monthly_income?.group === "foundation";
+      const g = isFoundationOverride ? "foundation" : (answers.biggest_problem?.group || "conversion");
+      return {result: g};
+    }
+
     function structuredData(){
       const {result}=calculate(),id=answers.identity||{};
-      return {submittedAt:new Date().toISOString(),result,name:id.name||"",instagram:id.instagram||"",answers:{biggest_problem:answers.biggest_problem?.value||"",client_source:answers.client_source?.value||"",contact:id.instagram||""}};
+      return {
+        submittedAt:new Date().toISOString(),
+        result,
+        name:id.name||"",
+        instagram:id.instagram||"",
+        answers:{
+          biggest_problem:answers.biggest_problem?.value||"",
+          client_source:answers.client_source?.value||"",
+          monthly_income:answers.monthly_income?.value||"",
+          content_goal:answers.content_goal?.value||"",
+          contact:id.instagram||""
+        }
+      };
     }
+
     async function save(data){
       try{await fetch(WEBHOOK_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)})}
       catch(e){try{localStorage.setItem("contentToClientScorecard",JSON.stringify(data))}catch(_){}}
     }
-    function copyKeyword(k){
-      const done=()=>toast(`تم نسخ كلمة ${k} — الصقها في رسالة Instagram.`);
-      if(navigator.clipboard?.writeText){navigator.clipboard.writeText(k).then(done).catch(()=>fb(k,done))}else fb(k,done);
-    }
-    function fb(k,done){const f=document.createElement("textarea");f.value=k;f.style.cssText="position:fixed;opacity:0";document.body.appendChild(f);f.select();document.execCommand("copy");f.remove();done()}
+
     function showResult(data){
       const item=results[data.result],first=(data.name||"").split(/\s+/)[0];
       $("#result").innerHTML=`<p class="result-label">${first?`نتيجتك يا ${esc(first)}`:"نتيجتك"}</p><h2>${esc(item.title)} <span class="hl">${esc(item.hl)}</span></h2><p class="result-copy">${esc(item.body)}</p><div class="plan free-plan"><h3>هذه هي خطتك المجانية</h3><svg class="down-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15M5.5 13 12 19.5 18.5 13"/></svg></div><div class="result-actions"><a class="button big has-icon" href="${esc(NOTION_PAGES[data.result])}" target="_blank" rel="noopener"><span>افتح خطتك في Notion</span><span class="btn-icon">${NOTION_ICON}</span></a></div>`;
       $("#result").classList.remove("hidden");persist("result",data);
     }
+
     function showFinalLoading(data){
       const bar=$("#finalProgress"),pc=$("#finalPercent"),set=v=>{bar.style.width=v+"%";pc.textContent=v+"%"};
       persist("result",data);$("#quiz").classList.add("hidden");$("#loading").classList.remove("hidden");set(0);void save(data);
       setTimeout(()=>set(28),160);setTimeout(()=>set(64),700);setTimeout(()=>set(99),1450);
       setTimeout(()=>{$("#loading").classList.add("hidden");showResult(data)},3000);
     }
+
     $("#start").addEventListener("click",()=>{$("#intro").classList.add("hidden");$("#quiz").classList.remove("hidden");persist();render()});
     $("#next").addEventListener("click",()=>{
       if(!isValid()){return}
