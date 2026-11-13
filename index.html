@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="تشخيص مجاني لمدربي الأونلاين يكشف الثغرة التي تمنع محتواك من جلب عملاء ويسلمك خطتك الجاهزة على Notion.">
-  <title>استراتيجية تحويل المحتوى إلى عملاء | عبدو</title>
+  <meta name="description" content="تقييم مجاني لمدربي الأونلاين يحدد المشكلة الأساسية في محتواك ويسلمك خطة جاهزة على Notion.">
+  <title>خطة تحويل المحتوى إلى عملاء | عبدو</title>
   <link rel="icon" type="image/png" href="favicon.png"><link rel="apple-touch-icon" href="favicon.png">
   <style>
     @font-face{font-family:FormaArabic;src:url('alfont_com_FormaDJRArabicBanner-Regular-Testing.otf') format('opentype');font-display:swap}
@@ -34,7 +34,7 @@
     .creator-role{display:block;font-size:12.5px;color:#d8c5ad;margin-top:1px}
 
     .hero h1{max-width:21ch;margin:0 auto;font-size:clamp(26px,4.6vw,40px);line-height:1.38;text-align:center}
-    .hero-sub{color:#cfc3b7;font-size:clamp(15px,2vw,17px);line-height:1.8;max-width:46ch;margin:14px auto 0}
+    .hero-sub{color:#cfc3b7;font-size:clamp(15px,2vw,17px);line-height:1.8;max-width:44ch;margin:14px auto 0}
     .hl{background:linear-gradient(100deg,#ff8a1f,#ffc58a);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
 
     /* ===== Preview Mock ===== */
@@ -103,34 +103,35 @@
     .final-percent{color:var(--sand);font-family:"Segoe UI",Tahoma,Arial,sans-serif;font-size:13px;margin:0}
     @keyframes spin{to{transform:rotate(1turn)}}
 
-    /* ===== Result & Bridge ===== */
-    .result{padding:clamp(26px,5vw,50px);text-align:center}
-    .result-label{color:var(--sand);font-size:13.5px;letter-spacing:.04em;margin:0 0 10px}
+    /* ===== Result & Notion Light Sweep ===== */
+    .result{padding:clamp(28px,5.5vw,52px);text-align:center}
+    .result-label{color:var(--sand);font-size:14px;margin:0 0 10px}
     .result h2{font-size:clamp(25px,4.2vw,36px);max-width:none}
-    .result-copy{font-size:16.5px;line-height:1.85;color:#d6cabf;max-width:54ch;margin:16px auto 24px}
+    .result-copy{font-size:16.5px;line-height:1.85;color:#d6cabf;max-width:50ch;margin:16px auto 28px}
 
-    .plan-box{text-align:right;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:20px 22px;max-width:560px;margin:0 auto 24px}
-    .plan-box h3{font-size:18px;color:#ff9a3c;margin:0 0 12px}
-    .plan-box ol{margin:0;padding-right:20px;color:#e6dcd2;line-height:1.9;font-size:15.5px}
-    .plan-box li+li{margin-top:6px}
+    .result-actions{display:flex;flex-direction:column;align-items:center;margin-bottom:36px}
+    .notion-btn{position:relative;overflow:hidden;padding:11px 28px 11px 11px!important;font-size:18.5px!important;min-height:62px!important;animation:notionGlowPulse 3.2s ease-in-out infinite}
+    .notion-btn::before{content:"";position:absolute;top:0;left:-130%;width:60%;height:100%;background:linear-gradient(115deg,transparent 0%,rgba(255,255,255,.32) 50%,transparent 100%);transform:skewX(-22deg);pointer-events:none;animation:notionLightSweep 4.2s ease-in-out infinite}
+    .btn-icon{flex:none;width:42px;height:42px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 3px 8px rgba(110,40,0,.3)}
+    .btn-icon svg{width:21px;height:21px;display:block}
+    @keyframes notionGlowPulse{
+      0%,100%{box-shadow:inset 0 1px 1px rgba(255,255,255,.45),0 0 12px 0 rgba(255,130,30,.22),0 10px 26px -10px rgba(0,0,0,.7)}
+      50%{box-shadow:inset 0 1px 1px rgba(255,255,255,.7),0 0 32px 6px rgba(255,145,45,.65),0 14px 32px -8px rgba(0,0,0,.7)}
+    }
+    @keyframes notionLightSweep{
+      0%,52%{left:-130%}
+      100%{left:165%}
+    }
 
-    .result-actions{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:32px}
-    .notion-btn{padding:10px 26px 10px 10px!important;font-size:18px!important;animation:notionGlow 2.4s ease-in-out infinite}
-    .btn-icon{flex:none;width:40px;height:40px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 3px 8px rgba(110,40,0,.3)}
-    .btn-icon svg{width:20px;height:20px;display:block}
-    @keyframes notionGlow{0%,100%{box-shadow:inset 0 1px 1px rgba(255,255,255,.6),0 0 14px 1px rgba(255,125,20,.35),0 8px 24px -10px rgba(0,0,0,.6)}50%{box-shadow:inset 0 1px 1px rgba(255,255,255,.6),0 0 30px 6px rgba(255,140,40,.7),0 8px 24px -10px rgba(0,0,0,.6)}}
-
-    .offer-bridge{text-align:right;max-width:560px;margin:0 auto;padding:24px;border-radius:18px;background:linear-gradient(145deg,rgba(255,140,40,.13),rgba(20,14,10,.85));border:1px solid rgba(255,165,85,.35);box-shadow:0 20px 50px rgba(0,0,0,.45)}
-    .bridge-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
-    .bridge-avatar{width:54px;height:54px;border-radius:50%;object-fit:cover;object-position:center 22%;border:2px solid #ff9a3c;flex:none;background:#261a12}
-    .bridge-head small{display:block;color:#ff9a3c;font-size:12.5px;font-weight:700;margin-bottom:2px}
-    .bridge-head h3{font-size:20px;color:#fff}
-    .offer-bridge p{font-size:15px;line-height:1.8;color:#dfd4c9;margin:0 0 16px}
-    .bridge-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-    .ig-cta{background:linear-gradient(180deg,#fff,#eaeaea)!important;color:#121212!important;padding:12px 24px!important;min-height:50px!important;font-size:15.5px!important;border:0!important;box-shadow:0 10px 25px rgba(0,0,0,.35)!important}
-    .keyword-copy{display:inline-flex;align-items:center;gap:8px;background:rgba(255,154,60,.12);color:#ffd2a6;border:1px solid rgba(255,160,80,.45);border-radius:999px;padding:11px 18px;font-size:14px;min-height:50px;transition:background .2s ease}
-    .keyword-copy:hover{background:rgba(255,154,60,.22)}
-    .keyword-code{font-family:"Segoe UI",Tahoma,Arial,sans-serif;font-weight:700;letter-spacing:.08em;color:#fff;direction:ltr}
+    /* ===== Bold Closing Card ===== */
+    .closing-card{max-width:560px;margin:0 auto;padding:26px 24px;border-radius:20px;background:linear-gradient(155deg,rgba(255,145,45,.15),rgba(18,12,8,.92));border:1px solid rgba(255,170,90,.4);box-shadow:0 22px 55px rgba(0,0,0,.55);text-align:center}
+    .closing-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:center 22%;border:2px solid #ff9a3c;box-shadow:0 0 22px rgba(255,154,60,.45);margin:0 auto 16px;display:block;background:#261a12}
+    .closing-text{font-size:17px;font-weight:700;line-height:1.85;color:#fff;margin:0 0 20px}
+    .closing-kw{color:#ff9a3c}
+    .closing-actions{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px}
+    .ig-cta{background:linear-gradient(180deg,#fff,#eaeaea)!important;color:#121212!important;padding:12px 26px!important;min-height:52px!important;font-size:16px!important;border:0!important;box-shadow:0 10px 25px rgba(0,0,0,.35)!important}
+    .keyword-copy{display:inline-flex;align-items:center;gap:8px;background:rgba(255,154,60,.14);color:#ffe4c8;border:1px solid rgba(255,160,80,.45);border-radius:999px;padding:12px 20px;font-size:15px;font-weight:700;min-height:52px;transition:background .2s ease}
+    .keyword-copy:hover{background:rgba(255,154,60,.25)}
 
     .toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,130px);background:#f7efe5;color:#1f1611;border-radius:999px;padding:12px 20px;font-size:14px;font-weight:700;box-shadow:0 12px 35px #0009;transition:transform .24s ease;z-index:30}
     .toast.show{transform:translate(-50%,0)}
@@ -140,10 +141,10 @@
       .field-row{grid-template-columns:1fr}
       .mock .side{width:50%}.mock .mid{width:64%}
       .nav{gap:10px}.nav #next.button.button,.nav .back-link{flex:1 1 0;width:auto;font-size:17px;padding:14px 10px}
-      .bridge-actions{flex-direction:column;align-items:stretch}
+      .closing-actions{flex-direction:column;align-items:stretch}
       .ig-cta,.keyword-copy{justify-content:center;width:100%}
     }
-    @media(prefers-reduced-motion:reduce){.glow,.options.glow .option,.notion-btn{animation:none!important}}
+    @media(prefers-reduced-motion:reduce){.glow,.options.glow .option,.notion-btn,.notion-btn::before{animation:none!important}}
   </style>
 </head>
 <body>
@@ -154,7 +155,7 @@
         <img class="creator-avatar" src="https://plain-weur-prod-public.komododecks.com/202611/13/YnerUoEsQYXP9wraNBmW/image.jpg" onerror="this.onerror=null;this.src='favicon.png';" alt="عبدو">
         <div class="creator-info">
           <span class="creator-name">
-            عبدو · Abdoo
+            عبدو
             <span class="verified-badge" aria-hidden="true">
               <svg viewBox="0 0 24 24">
                 <path fill="#ff9a3c" d="M12 1.75l2.77 2.13 3.49-.31 1.35 3.22 3.12 1.62-.71 3.42 1.78 3.01-2.63 2.31-.28 3.48-3.41.76-2.12 2.78-3.36-1.08-3.36 1.08-2.12-2.78-3.41-.76-.28-3.48-2.63-2.31 1.78-3.01-.71-3.42 3.12-1.62 1.35-3.22 3.49.31L12 1.75z"/>
@@ -167,7 +168,7 @@
       </div>
 
       <h1>حوّل محتواك المجاني إلى نظام يجيب <span class="hl">عملاء تدريب أونلاين</span> في <span class="numeral">30</span> ثانية</h1>
-      <p class="hero-sub">تشخيص عملي يكشف لك بالضبط وين يضيع عملاؤك في المحتوى ويسلمك خطة تنفيذية مخصصة على Notion حسب مرحلتك الحالية.</p>
+      <p class="hero-sub">أجب على <span class="numeral">4</span> أسئلة سريعة لتعرف سبب توقف المبيعات من محتواك وتستلم خطتك الجاهزة على Notion.</p>
 
       <div class="mock" aria-hidden="true">
         <img class="side r" src="img-foundation.jpg" alt="" loading="eager">
@@ -175,7 +176,7 @@
         <img class="mid" src="img-engine.jpg" alt="" loading="eager">
       </div>
 
-      <button id="start" class="button big">ابدأ التشخيص المجاني</button>
+      <button id="start" class="button big">ابدأ التقييم المجاني</button>
 
       <ul class="perks">
         <li>
@@ -184,11 +185,11 @@
         </li>
         <li>
           <span class="perk-dot" aria-hidden="true"></span>
-          <span>خطة عمل تطبيقية جاهزة مباشرة داخل <span class="numeral">Notion</span></span>
+          <span>خطة تطبيقية جاهزة مباشرة داخل <span class="numeral">Notion</span></span>
         </li>
         <li>
           <span class="perk-dot" aria-hidden="true"></span>
-          <span>تستغرق أقل من <span class="numeral">30</span> ثانية بدون أي تعقيد</span>
+          <span>تستغرق أقل من <span class="numeral">30</span> ثانية</span>
         </li>
       </ul>
     </section>
@@ -197,7 +198,7 @@
     <section id="quiz" class="card step-card hidden" aria-live="polite">
       <div class="step-meta">
         <span id="stepCounter">الخطوة 1 من 5</span>
-        <span id="stepStage">تشخيص المحتوى</span>
+        <span id="stepStage">تقييم المحتوى</span>
       </div>
       <div class="progress"><span id="progress"></span></div>
       <div id="questionArea"></div>
@@ -210,8 +211,8 @@
     <!-- ===== LOADING ===== -->
     <section id="loading" class="card loading hidden" aria-live="polite">
       <div class="spinner"></div>
-      <h2>نحلل إجاباتك ونجهّز خطتك</h2>
-      <p class="loading-sub">نطابق مرحلتك الحالية مع مسار المحتوى الأنسب لحسابك...</p>
+      <h2>نجهّز خطتك الآن</h2>
+      <p class="loading-sub">نطابق إجاباتك مع الخطة المناسبة لحسابك...</p>
       <div class="final-progress"><span id="finalProgress"></span></div>
       <p id="finalPercent" class="final-percent">0%</p>
     </section>
@@ -233,7 +234,7 @@
     };
 
     const NOTION_ICON = '<svg viewBox="0 0 24 24" fill="#0b0806" aria-hidden="true"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg>';
-    const SESSION_KEY = "contentToClientScorecardSessionV6";
+    const SESSION_KEY = "contentToClientScorecardSessionV7";
     const WEBHOOK_URL = "https://hook.eu1.make.com/t6lq5g3owb6tuzfvufjpy3zms9hnj1cg";
     const choice = (label, group = null) => ({ label, group });
 
@@ -241,8 +242,8 @@
       {
         id: "biggest_problem",
         type: "choice",
-        stage: "تشخيص المحتوى",
-        title: "وش هي أكبر عقبة تواجهك في المحتوى حاليًا؟",
+        stage: "تقييم المحتوى",
+        title: "وش هي أكبر مشكلة تواجهك في المحتوى حاليًا؟",
         options: [
           choice("عندي مشاهدات وتفاعل، لكن ما تتحول لعملاء تدريب أونلاين.", "conversion"),
           choice("مشاهداتي ضعيفة وما أوصل للعميل الجاد اللي يقدر يدفع.", "foundation"),
@@ -256,8 +257,8 @@
         title: "من وين تجيب عملاء التدريب الأونلاين حاليًا؟",
         options: [
           choice("إعلانات ممولة."),
-          choice("تواصل مباشر (Outreach / DMs)."),
-          choice("محتوى مجاني (إنستقرام / يوتيوب)."),
+          choice("تواصل مباشر في الرسائل."),
+          choice("محتوى مجاني على إنستقرام أو يوتيوب."),
           choice("لسا ما جبت عملاء بشكل منتظم.", "foundation")
         ]
       },
@@ -280,10 +281,10 @@
         id: "content_goal",
         type: "choice",
         stage: "الهدف القادم",
-        title: "وش أولويتك القصوى من المحتوى خلال الـ 90 يوم الجاية؟",
+        title: "وش هدفك الأول من المحتوى خلال الـ 90 يوم الجاية؟",
         options: [
           choice("جذب عملاء High-Ticket جاهزين للاشتراك."),
-          choice("بناء ثقة وسلطة قوية في مجالي."),
+          choice("بناء ثقة وسمعة قوية في مجالي."),
           choice("زيادة الانتشار والمشاهدات المستهدفة.")
         ]
       },
@@ -291,47 +292,26 @@
         id: "identity",
         type: "identity",
         stage: "الخطوة الأخيرة",
-        title: "خطتك المخصصة جاهزة! وين نرسلها لك؟",
-        subtitle: "اكتب اسمك وحسابك على إنستغرام لفتح ملف الخطة الكامل في Notion فورًا."
+        title: "خطتك جاهزة. وين نرسلها لك؟",
+        subtitle: "اكتب اسمك وحسابك على إنستقرام لفتح ملف الخطة في Notion مباشرة."
       }
     ];
 
     const results = {
       foundation: {
-        title: "الثغرة اللي توقف نموك حاليًا:",
+        title: "أكبر خطأ يمنعك توصل لهدفك هو",
         hl: "الأساس",
-        body: "المشكلة مو إنك تنشر قليل؛ المشكلة إن محتواك يخاطب الجمهور العام بدل العميل اللي مستعد يدفع لبرنامجك. قبل ما تزيد عدد الفيديوهات، لازم تضبط زاوية الرسالة والـ Bio.",
-        plan: [
-          "حدّد ملف عميل واحد دقيق (ICP) بدل مخاطبة كل المهتمين بالرياضة.",
-          "اكتب 5 آلام يومية و5 اعتراضات تمنع هذا العميل من الاشتراك معك.",
-          "أعد صياغة الـ Bio ليوضح: من تساعد + النتيجة المحددة + الخطوة التالية.",
-          "انشر 3 فيديوهات تهاجم الأخطاء الشائعة عند عميلك المثالي وتفلتر المتابعين المجانيين."
-        ],
-        keyword: "FOUNDATION"
+        body: "محتواك يخاطب الجمهور العام بدل العميل المستعد يدفع لبرنامجك. قبل ما تنشر فيديوهات أكثر، لازم تحدد عميلك المثالي وتوضح رسالتك في الحساب."
       },
       content_engine: {
-        title: "الثغرة اللي توقف نموك حاليًا:",
+        title: "أكبر خطأ يمنعك توصل لهدفك هو",
         hl: "نظام المحتوى",
-        body: "عندك خبرة ونتائج حقيقية مع متدربينك، لكن تحويلها لمحتوى مقنع يتم بشكل عشوائي وبدون خطة. ما تحتاج أفكار أكثر؛ تحتاج نظام محتوى واضح يشتغل لصالحك.",
-        plan: [
-          "اجمع 5 تحولات حقيقية لمتدربيك (نقطة البداية + العقبة + النتيجة).",
-          "حوّل كل تحول إلى 3 زوايا: فيديو تعليمي، فيديو إثبات (Proof)، وفيديو بيعي.",
-          "اعتمد هيكل ريلز ثابت (هوك يفلتر + إعادة صياغة + دليل + CTA) لتسريع الكتابة.",
-          "خطّط محتواك الأسبوعي مسبقًا بناءً على اعتراضات متدربيك بدل الارتجال اليومي."
-        ],
-        keyword: "ENGINE"
+        body: "عندك خبرة ونتائج حقيقية مع متدربيك، لكن نشر المحتوى عندك يتم بدون خطة ثابتة. تحتاج نظام واضح يحول خبرتك لأفكار جاهزة كل أسبوع."
       },
       conversion: {
-        title: "الثغرة اللي توقف نموك حاليًا:",
+        title: "أكبر خطأ يمنعك توصل لهدفك هو",
         hl: "التحويل",
-        body: "محتواك يجيب مشاهدات وتفاعل، لكن المتابع يتفرج ويمشي لأن ما في جسر واضح ينقله من الريلز إلى محادثة في الخاص ثم مكالمة اشتراك.",
-        plan: [
-          "اربط كل فيديو تحويلي بدعوة واضحة ومحددة للخاص (Keyword DM CTA).",
-          "استبدل النصائح العامة بمحتوى يكشف سبب فشل المحاولات السابقة للمتدرب.",
-          "استخدم Lead Magnet واحد يحل مشكلة سريعة ويفتح باب المحادثة في الخاص.",
-          "قس نجاح الفيديوهات بعدد المحادثات المؤهلة في الـ DMs وليس بالمشاهدات فقط."
-        ],
-        keyword: "LEADS"
+        body: "محتواك يجيب مشاهدات وتفاعل، لكن المتابع يتفرج ويمشي بدون ما يراسلك. تحتاج طريقة واضحة تنقل المشاهد من الفيديو إلى محادثة في الخاص."
       }
     };
 
@@ -412,7 +392,7 @@
           <input id="fullName" class="field" autocomplete="name" placeholder="الاسم الكامل" value="${esc(saved?.name || "")}">
           <input id="igHandle" class="field ltr" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="@instagram" value="${esc(saved?.instagram ? "@" + saved.instagram : "")}">
         </div>
-        <p class="privacy-note">بياناتك تُستخدم لتخصيص خطتك فقط ولن تصلك أي رسائل مزعجة.</p>`;
+        <p class="privacy-note">بياناتك تُستخدم لتجهيز خطتك فقط ولن تصلك أي رسائل مزعجة.</p>`;
       } else {
         html += `<div class="options">${q.options.map((o, i) => {
           const sel = saved?.value === o.label;
@@ -481,50 +461,35 @@
     function showResult(data) {
       const item = results[data.result];
       const first = (data.name || "").split(/\s+/)[0];
-      const stepsHtml = item.plan.map(s => `<li>${fmt(s)}</li>`).join("");
 
       $("#result").innerHTML = `
-        <p class="result-label">${first ? `التشخيص الخاص بك يا ${esc(first)}` : "نتيجة التشخيص"}</p>
+        <p class="result-label">${first ? `نتيجتك يا ${esc(first)}` : "نتيجتك"}</p>
         <h2>${esc(item.title)} <span class="hl">${esc(item.hl)}</span></h2>
         <p class="result-copy">${esc(item.body)}</p>
 
-        <div class="plan-box">
-          <h3>أول <span class="numeral">4</span> خطوات تطبيقية لحسابك:</h3>
-          <ol>${stepsHtml}</ol>
-        </div>
-
         <div class="result-actions">
           <a class="button big notion-btn" href="${esc(NOTION_PAGES[data.result])}" target="_blank" rel="noopener">
-            <span>افتح النظام الكامل في Notion</span>
+            <span>افتح خطتك في Notion</span>
             <span class="btn-icon">${NOTION_ICON}</span>
           </a>
         </div>
 
-        <div class="offer-bridge">
-          <div class="bridge-head">
-            <img class="bridge-avatar" src="${AVATAR_URL}" onerror="this.onerror=null;this.src='favicon.png';" alt="عبدو">
-            <div>
-              <small>الخطوة التالية (اختياري)</small>
-              <h3>تبغاني أبني لك استراتيجية المحتوى بالكامل؟</h3>
-            </div>
-          </div>
-          <p>الخطة صارت عندك الآن، لكن تحويلها إلى زوايا محتوى وسكربتات تجذب عملاء تدريب أونلاين جادين يحتاج تخطيط دقيق. أرسل لي كلمة <b class="keyword-code">${esc(item.keyword)}</b> في خاص الإنستغرام وبراجع حسابك وبعطيك أول <span class="numeral">3</span> أفكار محتوى مخصصة لجمهورك مجانًا.</p>
-          <div class="bridge-actions">
-            <a class="button ig-cta" href="${esc(INSTAGRAM_URL)}" target="_blank" rel="noopener">راسلني على إنستغرام الآن</a>
-            <button type="button" class="keyword-copy" id="copyKw">
-              <span>انسخ الكلمة:</span>
-              <span class="keyword-code">${esc(item.keyword)}</span>
-            </button>
+        <div class="closing-card">
+          <img class="closing-avatar" src="${AVATAR_URL}" onerror="this.onerror=null;this.src='favicon.png';" alt="عبدو">
+          <p class="closing-text">عندك خيارين الآن: تطبق كل هذا بنفسك وهذا أخذ مني أكثر من سنة حتى أتعلمه، أو تكتب لي كلمة <span class="closing-kw">"محتوى"</span> وتشوف كيف ممكن أساعدك حتى تكبر العلامة الشخصية تبعك.</p>
+          <div class="closing-actions">
+            <a class="button ig-cta" href="${esc(INSTAGRAM_URL)}" target="_blank" rel="noopener">اكتب لي "محتوى" على إنستقرام</a>
+            <button type="button" class="keyword-copy" id="copyKw">انسخ كلمة "محتوى"</button>
           </div>
         </div>
       `;
 
       $("#copyKw")?.addEventListener("click", async () => {
         try {
-          await navigator.clipboard.writeText(item.keyword);
-          toast(`تم نسخ كلمة ${item.keyword}، الصقها في الخاص`);
+          await navigator.clipboard.writeText("محتوى");
+          toast("تم نسخ كلمة محتوى، الصقها في الخاص");
         } catch (e) {
-          toast(`اكتب كلمة ${item.keyword} في الخاص`);
+          toast("اكتب كلمة محتوى في الخاص");
         }
       });
 
